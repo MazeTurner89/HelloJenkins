@@ -1,11 +1,23 @@
-# Use latest lightweight Java 21 image
-FROM eclipse-temurin:21-jdk
+                                  {10} Pull Ubuntu image in Docker and execute bash.
 
-# Set working directory inside the container
-WORKDIR /app
-
-# Copy project files into container
-COPY . /app
-
-# Default command (just a placeholder — Jenkins/Maven will run real commands)
-CMD ["bash", "-c", "echo Java 21 Docker image built successfully"]
+                                  
+            1. create an instance with key pair
+            2. open putty gen and go to file and insert that key pair file then save the private key
+            3. go to account and copy ipv4 public address of instances 
+            4. paste the ipv4 public address in putty and go to ssh and then auth then in credentials add the ppk file 
+            5.then open it 
+            
+            commands:-
+            sudo systemctl start docker
+            sudo systemctl status docker
+            docker --version                     --- Check if Docker is installed
+            sudo docker pull ubuntu              --- Pull Ubuntu image from Docker Hub
+            sudo docker images                   --- List all downloaded images
+            sudo docker run -it ubuntu bash      --- Run Ubuntu container and open bash shell
+						exit                                 --- Exit from the container shell
+						sudo docker ps -a                    --- Show all containers (running + stopped)
+						sudo docker start <container_id>     --- Start an existing stopped container
+						sudo docker exec -it <contpainer_id> bash --- Re-enter bash in a running container
+            sudo docker stop <container_id>      --- stop the container
+						sudo docker rm <container_id>        --- Remove a container
+						sudo docker rmi ubuntu               --- Remove the Ubuntu image
