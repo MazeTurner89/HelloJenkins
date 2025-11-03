@@ -1,0 +1,62 @@
+Q4: Compile Project in Jenkins using Maven — Steps
+
+Install Jenkins and ensure it is running at http://localhost:8080
+.
+
+Install Maven Integration Plugin from Manage Jenkins → Plugins.
+
+Configure Maven in Manage Jenkins → Tools → Maven installations → Add Maven → Save.
+
+Configure JDK in Manage Jenkins → Tools → JDK installations → Add JDK → Save.
+
+Create a new Maven project using New Item → Maven project → OK.
+
+Configure Source Code Management (Git URL if needed).
+
+In Build section, select configured Maven and set goals as clean install.
+
+Save the job configuration.
+
+Click Build Now and verify Console Output for successful Maven build.
+
+
+Q5: Create Slave Node (Agent) in Jenkins — Steps
+
+Go to Manage Jenkins → Nodes → New Node.
+
+Enter node name, select Permanent Agent → OK.
+
+Set Remote Root Directory path on the agent machine.
+
+Set Launch Method as “Launch agent via Java Web Start/Agent.jar”.
+
+Save and download agent.jar from the node page.
+
+Copy agent.jar to the agent machine.
+
+Run java -jar agent.jar -jnlpUrl <URL> -secret <secretKey> to connect the agent.
+
+Confirm node status shows as “Connected” in Jenkins Dashboard.
+
+Q6Assign Project to Slave Node and Build Project
+Create a new Maven project using New Item → Maven Project → OK.
+
+Configure Git repository (or local pom.xml project uploaded into workspace).
+
+In Build section set Maven goals as clean install → Save.
+
+Create a new Permanent Agent in Manage Jenkins → Nodes → New Node.
+
+Set Remote Root Directory and Launch method → Save.
+
+Download agent.jar from node page and run: java -jar agent.jar -jnlpUrl <URL> -secret <secretKey>.
+
+Verify node status becomes Connected.
+
+Edit the Maven job → Enable “Restrict where this project can be run”.
+
+Enter the Agent Node Label → Save.
+
+Click Build Now.
+
+Verify Console Output shows build executed on the Agent.
