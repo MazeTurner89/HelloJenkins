@@ -1,0 +1,11 @@
+# Use latest lightweight Java 21 image
+FROM eclipse-temurin:21-jdk
+
+# Set working directory inside the container
+WORKDIR /app
+
+# Copy project files into container
+COPY . /app
+
+# Default command (just a placeholder — Jenkins/Maven will run real commands)
+CMD ["bash", "-c", "echo Java 21 Docker image built successfully"]
