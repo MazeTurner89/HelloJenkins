@@ -21,3 +21,53 @@
             sudo docker stop <container_id>      --- stop the container
 						sudo docker rm <container_id>        --- Remove a container
 						sudo docker rmi ubuntu               --- Remove the Ubuntu image
+
+
+{17} Build Docker image from Dockerfile and run container.
+
+1. Create an AWS instance (t3a.small) and connect it using PuTTY.
+2. Update and upgrade the system packages.
+3. Install Docker on the instance.
+4. Start and verify Docker service.
+5. Create a new project directory for Docker.
+6. Create and edit a Dockerfile with required instructions.
+7. Build a Docker image from the Dockerfile.
+8. Verify the image creation.
+9. Run a Docker container from the built image.
+10. Check running containers.
+11. Access the container bash terminal.
+12. Stop and remove container when done.
+13. Optionally, remove the Docker image to free space.
+
+commands:-
+sudo apt-get update && sudo apt-get upgrade -y        --- Update and upgrade system packages
+sudo apt-get install docker.io -y                      --- Install Docker
+sudo systemctl start docker                            --- Start Docker service
+sudo systemctl enable docker                           --- Enable Docker to start on boot
+sudo systemctl status docker                           --- Check Docker status
+docker --version                                       --- Verify Docker installation
+
+mkdir mydockerproject                                  --- Create project directory
+cd mydockerproject                                     --- Navigate to project directory
+touch Dockerfile                                       --- Create Dockerfile
+nano Dockerfile                                        --- Edit Dockerfile
+
+Example Dockerfile:
+-----------------------------------
+FROM ubuntu:latest
+RUN apt-get update
+RUN apt-get install -y nginx
+CMD ["nginx", "-g", "daemon off;"]
+-----------------------------------
+
+sudo docker build -t mynginximage .                    --- Build Docker image from Dockerfile
+sudo docker images                                     --- Verify image has been created
+sudo docker run -d -p 8080:80 mynginximage             --- Run container from built image
+sudo docker ps                                         --- Check running containers
+sudo docker exec -it <container_id> bash               --- Access container bash shell
+exit                                                   --- Exit from container shell
+sudo docker stop <container_id>                        --- Stop container
+sudo docker rm <container_id>                          --- Remove container
+sudo docker rmi mynginximage                           --- Remove Docker image
+sudo docker system prune -a                            --- Clean up unused images and containers
+
