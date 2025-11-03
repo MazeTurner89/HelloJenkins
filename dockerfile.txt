@@ -23,6 +23,31 @@
 						sudo docker rmi ubuntu               --- Remove the Ubuntu image
 
 
+
+
+                        {12}Pull Docker images, list, remove unused ones.
+
+         
+					1. Create an AWS instance (T3a.small) and connect it using PuTTY  
+					2. Update and upgrade system packages  
+					3. Install Docker and verify installation  
+					4. Pull different Docker images from Docker Hub  
+					5. List all Docker images available locally  
+					6. Remove unused or unnecessary Docker images  
+
+					commands:-
+					sudo apt-get update && sudo apt-get upgrade -y      --- Update and upgrade system packages
+					sudo apt-get install docker.io -y                    --- Install Docker
+					sudo systemctl start docker                          --- Start Docker service
+					sudo systemctl status docker                         --- Check Docker status
+					docker --version                                     --- Verify Docker installation
+					sudo docker pull ubuntu                              --- Pull Ubuntu image from Docker Hub
+					sudo docker pull nginx                               --- Pull Nginx image from Docker Hub
+					sudo docker images                                   --- List all downloaded Docker images
+					sudo docker rmi <image_id>                           --- Remove a specific Docker image
+					sudo docker image prune -a                           --- Remove all unused Docker images
+					sudo docker system df                                --- Check disk usage by Docker
+
 {17} Build Docker image from Dockerfile and run container.
 
 1. Create an AWS instance (t3a.small) and connect it using PuTTY.
@@ -70,4 +95,5 @@ sudo docker stop <container_id>                        --- Stop container
 sudo docker rm <container_id>                          --- Remove container
 sudo docker rmi mynginximage                           --- Remove Docker image
 sudo docker system prune -a                            --- Clean up unused images and containers
+
 
