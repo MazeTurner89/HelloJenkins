@@ -1,0 +1,15 @@
+
+Q 11 Pull files from GitHub, make changes, and push back.
+
+git config --global user.name "Your Name"            --- Set Git username
+git config --global user.email "your_email@example.com" --- Set Git email
+git clone <repository_url>      # Clone remote repo to local machine
+cd <repo_name>                  # Go into project directory
+nano file.txt                   # Edit file
+git status                      # View changes
+git add file.txt                # Stage specific file (optional)
+git commit -m "Message"         # Commit staged changes
+git pull origin main            # Sync with remote branch
+git push origin main            # Push changes
+git log                         # View commit history
+git remote -v                   # Check remote repo URL
