@@ -13,3 +13,67 @@ git pull origin main            # Sync with remote branch
 git push origin main            # Push changes
 git log                         # View commit history
 git remote -v                   # Check remote repo URL
+
+Q{14} Execute basic Git commands.
+
+1. Create an AWS instance (T3a.small) and connect it using PuTTY  
+2. Update and upgrade system packages  
+3. Install Git and verify installation  
+4. Perform basic Git operations to manage version control  
+
+commands:-
+sudo apt-get update && sudo apt-get upgrade -y      --- Update and upgrade system packages
+sudo apt-get install git -y                          --- Install Git
+git --version                                        --- Check installed Git version
+git config --global user.name "Your Name"            --- Set your Git username
+git config --global user.email "your_email@example.com" --- Set your Git email
+git config --list                                   --- Verify Git configurations
+mkdir myproject                                     --- Create a new project directory
+cd myproject                                        --- Navigate into project folder
+git init                                            --- Initialize a new Git repository
+ls -a                                               --- View hidden .git folder
+touch file.txt                                      --- Create a new file
+git status                                          --- Check status of changes
+git add .                                           --- Stage all changes
+git commit -m "Initial commit"                      --- Commit staged files with a message
+git log                                             --- View commit history
+git remote add origin <repository_url>              --- Connect local repo to remote GitHub repo
+git push -u origin main                             --- Push committed code to main branch
+git pull origin main                                --- Pull latest changes from remote repository
+
+Q{15} Create Git repository → add file → commit → push.
+
+1. Create an AWS instance (T3a.small) and connect it using PuTTY  
+2. Update and upgrade system packages  
+3. Install Git and verify installation  
+4. Create a new project directory and initialize a Git repository  
+5. Add files, commit the changes, and push them to GitHub  
+
+commands:-
+sudo apt-get update && sudo apt-get upgrade -y      --- Update and upgrade system packages
+sudo apt-get install git -y                          --- Install Git
+git --version                                        --- Verify Git installation
+git config --global user.name "Your Name"            --- Set Git username
+git config --global user.email "your_email@example.com" --- Set Git email
+
+mkdir myproject                                     --- Create new project directory
+cd myproject                                        --- Navigate into project folder
+git init                                            --- Initialize a new Git repository
+ls -a                                        s       --- Verify .git folder created
+
+touch index.html                                    --- Create a new file
+nano index.html                                     --- Open file to edit (add sample content)
+git status                                          --- Check status of repository
+git add .                                           --- Stage all files for commit
+git commit -m "Initial project setup"               --- Commit changes with message
+git log                                             --- View commit history
+
+git remote add origin <repository_url>              --- Connect local repo to remote GitHub repo
+git branch -M main                                  --- Rename default branch to main
+git push -u origin main                             --- Push committed code to GitHub repository
+
+
+
+
+
+
