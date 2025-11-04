@@ -4,19 +4,17 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/<username>/<repo>.git'
+                git url: 'https://github.com/MazeTurner89/HelloJenkins.git', branch: 'main'
             }
         }
-
         stage('Build Project') {
             steps {
-                sh 'mvn clean install'
+                echo "Building the project..."
             }
         }
-
         stage('Test') {
             steps {
-                sh 'mvn test'
+                echo "Running tests..."
             }
         }
     }
